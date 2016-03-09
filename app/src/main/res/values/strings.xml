@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ID.Roll.Capture</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_course_list">CourseList</string>
+    <string name="title_activity_setup">Setup</string>
+    <string name="title_activity_edit_course">EditCourse</string>
+    <string name="title_activity_select_date">SelectDate</string>
+</resources>
