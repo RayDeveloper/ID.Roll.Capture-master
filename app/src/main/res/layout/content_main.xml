@@ -15,22 +15,24 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:id="@+id/imageView"
+        android:id="@+id/courseList"
         android:layout_marginTop="74dp"
         android:src="@drawable/courselist"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:id="@+id/imageView2"
+        android:id="@+id/newCourse"
         android:src="@drawable/setup"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/courseList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="47dp" />
+        android:layout_marginTop="47dp"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,25 +40,27 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Course List"
         android:id="@+id/textView"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
+        android:layout_alignTop="@+id/courseList"
+        android:layout_toRightOf="@+id/courseList"
+        android:layout_toEndOf="@+id/courseList"
         android:layout_marginTop="60dp"
         android:textColor="#5d5757"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Setup"
-        android:id="@+id/textView2"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
+        android:id="@+id/setup_textview2"
+        android:layout_alignTop="@+id/newCourse"
+        android:layout_toRightOf="@+id/newCourse"
+        android:layout_toEndOf="@+id/newCourse"
         android:layout_marginTop="58dp"
         android:textColor="#5d5757"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,18 +71,20 @@
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView"
-        android:textColor="#44a33c" />
+        android:textColor="#44a33c"
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Create a new course role"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
-        android:textColor="#44a33c" />
+        android:id="@+id/setup_textview"
+        android:layout_below="@+id/setup_textview2"
+        android:layout_toRightOf="@+id/newCourse"
+        android:layout_toEndOf="@+id/newCourse"
+        android:textColor="#44a33c"
+        android:clickable="true" />
 
     <ImageView
         android:layout_width="1000dp"

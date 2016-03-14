@@ -15,7 +15,7 @@
     <ImageView
         android:layout_width="1000dp"
         android:layout_height="50dp"
-        android:id="@+id/imageView4"
+        android:id="@+id/redheading"
         android:src="#f50808"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Course List"
-        android:id="@+id/textView6"
+        android:id="@+id/courseList_txtview"
         android:height="50dp"
         android:textColor="#fbfafa"
         android:textStyle="bold"
@@ -36,8 +36,8 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/imageView4"
+        android:id="@+id/courseList_view"
+        android:layout_below="@+id/courseList_txtview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
