@@ -31,9 +31,10 @@
             android:label="@string/title_activity_edit_course"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SelectDate"
-            android:label="@string/title_activity_select_date"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        android:name=".SelectDate"
+        android:label="@string/title_activity_select_date"
+        android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

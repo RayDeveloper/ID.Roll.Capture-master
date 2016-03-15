@@ -1,5 +1,7 @@
 package edu.uwi.sta.idrollcapture.Models;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 import java.sql.Date;
@@ -11,6 +13,7 @@ public class CourseContract {
     private static final String INT_TYPE=" INT ";
     private static final String TEXT_TYPE= " TEXT ";
     private static final String COMMA_SEP= " , ";
+
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + CourseEntry.TABLE_NAME + " ( " +
                     CourseEntry.COLUMN_NAME_ID +INT_TYPE +" PRIMARY KEY," +
@@ -29,4 +32,9 @@ public class CourseContract {
         public static final String COLUMN_NAME_DATE_CREATED = "datecreated";
 
     }
+
+
+
+
+
 }

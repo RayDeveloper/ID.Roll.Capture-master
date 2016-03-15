@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:2:1-39:12
+ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\A
 		INJECTED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:5:5-37:19
+ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:5:5-38:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.1.1] C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\AndroidManifest.xml:22:5-20
@@ -75,13 +75,13 @@ ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\A
 	android:name
 		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:30:13-39
 activity#edu.uwi.sta.idrollcapture.SelectDate
-ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:33:9-36:68
+ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:33:9-36:64
 	android:label
-		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:35:13-63
+		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:35:9-59
 	android:theme
-		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:36:13-56
+		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:36:9-52
 	android:name
-		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:34:13-39
+		ADDED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:34:9-35
 uses-sdk
 INJECTED from C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\Raydon\Desktop\Android\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:20:5-43
