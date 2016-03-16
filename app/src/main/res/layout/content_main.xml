@@ -86,17 +86,6 @@
         android:textColor="#44a33c"
         android:clickable="true" />
 
-    <ImageView
-        android:layout_width="1000dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="#f50808" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
