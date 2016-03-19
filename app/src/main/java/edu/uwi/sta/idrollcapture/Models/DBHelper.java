@@ -17,7 +17,7 @@ import edu.uwi.sta.idrollcapture.CourseList;
 
 public class DBHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "course.db";
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;

@@ -10,13 +10,13 @@ import java.sql.Date;
  * Created by 813117991 on 2/23/2016.
  */
 public class CourseContract {
-    private static final String INT_TYPE=" INT ";
+    private static final String INT_TYPE=" INTEGER ";
     private static final String TEXT_TYPE= " TEXT ";
     private static final String COMMA_SEP= " , ";
 
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + CourseEntry.TABLE_NAME + " ( " +
-                    CourseEntry.COLUMN_NAME_ID +INT_TYPE +" PRIMARY KEY," +
+                    CourseEntry._ID + INT_TYPE + " PRIMARY KEY, "+
                     CourseEntry.COLUMN_NAME_COURSE_NAME + TEXT_TYPE + COMMA_SEP +
                     CourseEntry.COLUMN_NAME_COURSE_CODE + TEXT_TYPE + COMMA_SEP +
                     CourseEntry.COLUMN_NAME_DATE_CREATED + TEXT_TYPE+ " );";
@@ -26,7 +26,8 @@ public class CourseContract {
 
     public static abstract class CourseEntry implements BaseColumns {
         public static final String TABLE_NAME = "course";
-        public static final String COLUMN_NAME_ID = "courseID";
+
+        public static final String _ID = "courseID";
         public static final String COLUMN_NAME_COURSE_NAME = "coursename";
         public static final String COLUMN_NAME_COURSE_CODE = "coursecode";
         public static final String COLUMN_NAME_DATE_CREATED = "datecreated";

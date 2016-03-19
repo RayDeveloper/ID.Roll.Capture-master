@@ -66,29 +66,34 @@ int courseID=0;
 
 // Insert the new row, returning the primary key value of the new row
 
-                final long newRowId = db.insert(CourseContract.CourseEntry.TABLE_NAME,null,values);
+                final long newRowId = db.insert(CourseContract.CourseEntry.TABLE_NAME, null, values);
                 //courseID++;
                 //Toast.makeText(Setup.this,"db.insert area", Toast.LENGTH_SHORT).show();
                 if (newRowId != 0) {
-                    Toast.makeText(Setup.this,"RowID:"+newRowId, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Setup.this, "RowID:" + newRowId, Toast.LENGTH_SHORT).show();
 
                     Snackbar.make(v, "Course successfully added", Snackbar.LENGTH_LONG)
-                            .setAction("Undo", new View.OnClickListener() {
+                            .setAction("Delete Course", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-//                                    String sql = "DELETE FROM " +
-//                                            CourseContract.CourseEntry.TABLE_NAME +
-//                                            " WHERE " + CourseContract.CourseEntry.COLUMN_NAME_ID +
-//                                            " = " + newRowId + ";";
-//                                    db.execSQL(sql);
-                                    String selection = CourseContract.CourseEntry.COLUMN_NAME_ID + " LIKE ?";
-                                    String[] selectionArgs = { String.valueOf(newRowId) };
-                                    db.delete("course", selection, selectionArgs);
+                                    //SQLiteDatabase .delete("course", KEY_ID+"="+id, null);
+
+                                    String sql = "DELETE FROM " +
+                                            " course " +
+                                            " WHERE " + "courseID" +
+                                            " LIKE " + CourseContract.CourseEntry._ID + ";";
+                                    db.execSQL(sql);
+//                                    String selection = CourseContract.CourseEntry._ID + " LIKE ?";
+//                                    String[] selectionArgs = { String.valueOf(newRowId) };
+//                                    db.delete("course", selection, selectionArgs);
                                     Snackbar.make(v, "Course removed", Snackbar.LENGTH_LONG).show();
                                 }
                             })
                             .show();
+
                 }
+                name_editText.setText("");
+                code_editText.setText("");
 
             }
         });

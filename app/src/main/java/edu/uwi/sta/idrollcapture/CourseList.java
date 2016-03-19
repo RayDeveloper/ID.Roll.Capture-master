@@ -1,8 +1,10 @@
 package edu.uwi.sta.idrollcapture;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import java.util.List;
 
 
+import edu.uwi.sta.idrollcapture.Models.CourseContract;
 import edu.uwi.sta.idrollcapture.Models.CourseListAdapter;
 import edu.uwi.sta.idrollcapture.Models.DBHelper;
 import edu.uwi.sta.idrollcapture.Models.SqlHandler;
@@ -20,6 +23,7 @@ import edu.uwi.sta.idrollcapture.Models.courses;
 public class CourseList extends AppCompatActivity {
     SqlHandler sqlHandler;
     List<courses> courseList;
+    TextView coursename_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +36,11 @@ public class CourseList extends AppCompatActivity {
         courseList =help.getCourse();
         CourseListAdapter adapter = new CourseListAdapter(CourseList.this, courseList);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position,long arg3){
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
 
-                TextView coursename_view = (TextView) findViewById(R.id.coursename_txtview);
+                 coursename_view = (TextView) findViewById(R.id.coursename_txtview);
                 TextView coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
 
                 //textView.getText().toString();
@@ -60,9 +63,36 @@ public class CourseList extends AppCompatActivity {
                 // do what you intend to do on click of listview row
             }
         });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int pos, long id) {
+                int newpos=pos+1;
+
+                DBHelper mDbHelper = new DBHelper(CourseList.this);
+                final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+                String sql = "DELETE FROM " +
+                        " course " +
+                        " WHERE " +"courseID"+
+                        " LIKE " + newpos + ";";
+                db.execSQL(sql);
+                restartActivity();
+                //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(CourseList.this,"Course deleted at:"+newpos, Toast.LENGTH_SHORT).show();
+
+
+                return true;
+            }
+        });
     }
 
-
+    private void restartActivity() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
 
 }
 
