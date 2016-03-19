@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class SelectDate extends AppCompatActivity {
 
@@ -24,6 +26,16 @@ public class SelectDate extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle.containsKey("coursename")) {
+            String Stringid = bundle.getString("coursename");
+            TextView calener = (TextView) findViewById(R.id.calender);
+            calener.setText(Stringid);
+            Toast.makeText(SelectDate.this, Stringid, Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
 }

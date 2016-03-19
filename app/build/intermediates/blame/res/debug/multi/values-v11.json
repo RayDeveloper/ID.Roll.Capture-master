@@ -348,6 +348,27 @@
                         "endOffset": 12555
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 160,
+                    "startColumn": 4,
+                    "startOffset": 11660,
+                    "endLine": 161,
+                    "endColumn": 10,
+                    "endOffset": 11755
+                },
+                "from": {
+                    "file": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\3.0.2\\res\\values-v11\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 190,
+                        "endLine": 5,
+                        "endColumn": 10,
+                        "endOffset": 285
+                    }
+                }
             }
         ]
     }

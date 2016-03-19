@@ -76,14 +76,14 @@ int courseID=0;
                             .setAction("Undo", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    String sql = "DELETE FROM " +
-                                            CourseContract.CourseEntry.TABLE_NAME +
-                                            " WHERE " + CourseContract.CourseEntry.COLUMN_NAME_ID +
-                                            " = " + newRowId + ";";
-                                    db.execSQL(sql);
-//                                    String selection = CourseContract.CourseEntry._ID + " LIKE ?";
-//                                    String[] selectionArgs = { String.valueOf(newRowId) };
-//                                    db.delete("course", selection, selectionArgs);
+//                                    String sql = "DELETE FROM " +
+//                                            CourseContract.CourseEntry.TABLE_NAME +
+//                                            " WHERE " + CourseContract.CourseEntry.COLUMN_NAME_ID +
+//                                            " = " + newRowId + ";";
+//                                    db.execSQL(sql);
+                                    String selection = CourseContract.CourseEntry.COLUMN_NAME_ID + " LIKE ?";
+                                    String[] selectionArgs = { String.valueOf(newRowId) };
+                                    db.delete("course", selection, selectionArgs);
                                     Snackbar.make(v, "Course removed", Snackbar.LENGTH_LONG).show();
                                 }
                             })

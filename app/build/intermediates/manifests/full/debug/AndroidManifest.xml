@@ -8,6 +8,29 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="23" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+ <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+ <!-- TODO replace above two with next line after Android 4.2 -->
+    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,6 +63,40 @@
             android:name="edu.uwi.sta.idrollcapture.SelectDate"
             android:label="@string/title_activity_select_date"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="edu.uwi.sta.idrollcapture.scan_home"
+            android:label="@string/app_name"
+            android:parentActivityName="edu.uwi.sta.idrollcapture.CourseList"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.idrollcapture.CourseList" />
+        </activity>
+        <activity
+            android:name="edu.uwi.sta.idrollcapture.ContinuousCaptureActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="edu.uwi.sta.idrollcapture.scan_home"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.idrollcapture.scan_home" />
+        </activity>
+        <activity
+            android:name="edu.uwi.sta.idrollcapture.Register"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="edu.uwi.sta.idrollcapture.scan_home"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.idrollcapture.scan_home" />
+        </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>

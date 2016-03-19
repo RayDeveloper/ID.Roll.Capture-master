@@ -31,10 +31,36 @@
             android:label="@string/title_activity_edit_course"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-        android:name=".SelectDate"
-        android:label="@string/title_activity_select_date"
-        android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:name=".SelectDate"
+            android:label="@string/title_activity_select_date"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".scan_home"
+            android:label="@string/app_name"
+            android:parentActivityName=".CourseList"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.idrollcapture.CourseList" />
+        </activity>
+        <activity
+            android:name=".ContinuousCaptureActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".scan_home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.idrollcapture.scan_home" />
+        </activity>
+        <activity
+            android:name=".Register"
+            android:label="@string/title_activity_register"
+            android:parentActivityName=".scan_home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.idrollcapture.scan_home" />
+        </activity>
     </application>
 
 </manifest>

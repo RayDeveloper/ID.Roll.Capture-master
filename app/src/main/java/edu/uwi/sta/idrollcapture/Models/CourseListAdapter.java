@@ -59,10 +59,11 @@ public class CourseListAdapter extends BaseAdapter {
 
         }
 
-        TextView tvSlNo = (TextView) convertView.findViewById(R.id.courseview);
+        TextView tvSlNo = (TextView) convertView.findViewById(R.id.coursename_txtview);
         tvSlNo.setText(contactListItems.getCourse());
-        TextView tvName = (TextView) convertView.findViewById(R.id.codeview);
+        TextView tvName = (TextView) convertView.findViewById(R.id.coursecode_txtview);
         tvName.setText(contactListItems.getCode());
+
 
         return convertView;
     }
