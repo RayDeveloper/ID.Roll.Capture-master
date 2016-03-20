@@ -71,16 +71,16 @@ public class CourseList extends AppCompatActivity {
 
                 DBHelper mDbHelper = new DBHelper(CourseList.this);
                 final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+//delete by course code instead
+                    String sql = "DELETE FROM " +
+                            " course " +
+                            " WHERE " +"coursename"+
+                            " LIKE " + pos + ";";
+                    db.execSQL(sql);
+                    restartActivity();
 
-                String sql = "DELETE FROM " +
-                        " course " +
-                        " WHERE " +"courseID"+
-                        " LIKE " + newpos + ";";
-                db.execSQL(sql);
-                restartActivity();
-                //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(CourseList.this,"Course deleted at:"+newpos, Toast.LENGTH_SHORT).show();
 
 
                 return true;
