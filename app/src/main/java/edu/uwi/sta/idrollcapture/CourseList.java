@@ -94,6 +94,7 @@ public class CourseList extends AppCompatActivity {
         startActivity(intent);
     }
 
+
 }
 
 
