@@ -1,7 +1,10 @@
 package edu.uwi.sta.idrollcapture;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,6 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.List;
 
@@ -25,8 +32,14 @@ public class CourseList extends AppCompatActivity {
     List<courses> courseList;
     TextView coursename_view;
     TextView coursecode_view;
-    String course_code;
-    String course_name;
+
+    String courseName;
+    String courseCode;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +48,37 @@ public class CourseList extends AppCompatActivity {
         sqlHandler = new SqlHandler(this);
 
         final ListView listView = (ListView) findViewById(R.id.courseList_view);
-        DBHelper help=new DBHelper(getBaseContext());
-        courseList =help.getCourse();
+        DBHelper help = new DBHelper(getBaseContext());
+        courseList = help.getCourse();
         CourseListAdapter adapter = new CourseListAdapter(CourseList.this, courseList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
 
-                 coursename_view = (TextView) findViewById(R.id.coursename_txtview);
-                 coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
 
-                 course_name=coursename_view.getText().toString();
-                 course_code=coursecode_view.getText().toString();
-                //Toast.makeText(CourseList.this,"Course deleted at :\n"+course_name, Toast.LENGTH_SHORT).show();
+
+                //coursename_view = (TextView) findViewById(R.id.coursename_txtview);
+                //coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
+
+                courses selectedFromList =(courses) (listView.getItemAtPosition(position));
+
+                 courseName= selectedFromList.getCourse();
+               courseCode = selectedFromList.getCode();
+
+
+
+
+                //course_name=coursename_view.getText().toString();
+                //course_code=coursecode_view.getText().toString();
+               Toast.makeText(CourseList.this, "List string value :\n" +courseName+"\n"+courseCode, Toast.LENGTH_SHORT).show();
 
 
                 //textView.getText().toString();
                 Intent i = new Intent(CourseList.this, scan_home.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("coursename", coursename_view.getText().toString()); // place the position of the selected item
-                bundle.putString("coursecode", coursecode_view.getText().toString()); // place the position of the selected item
+                bundle.putString("coursename",courseName); // place the position of the selected item
+                bundle.putString("coursecode",courseCode); // place the position of the selected item
                 i.putExtras(bundle);
                 startActivity(i);
 
@@ -73,36 +96,71 @@ public class CourseList extends AppCompatActivity {
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int pos, long id) {
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int pos, long id) {
+
+                courses selectedFromList =(courses) (listView.getItemAtPosition(pos));
+
+                courseName= selectedFromList.getCourse();
+                courseCode = selectedFromList.getCode();
+
+
+                new AlertDialog.Builder(CourseList.this)
+                        .setTitle("Delete Course")
+                        .setMessage("Are you sure you want to delete this course?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                DBHelper mDbHelper = new DBHelper(CourseList.this);
+                                final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+                                //delete by course code instead or name
+                                //fix delete to use the correct way of deleting
+                                String sql = "DELETE FROM " +
+                                        " course " +
+                                        " WHERE " + "coursename" +
+                                        " LIKE '" + courseName + "';";
+                                db.execSQL(sql);
+                                restartActivity();
+
+                                //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CourseList.this, "Course deleted at :\n" + courseName, Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
                 //I have to add a dialog box to confirm deleting.
-                coursename_view = (TextView) findViewById(R.id.coursename_txtview);
-                coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
-
-                course_name=coursename_view.getText().toString();
-                course_code=coursecode_view.getText().toString();
-
-                int newpos=pos+1;
-
-                DBHelper mDbHelper = new DBHelper(CourseList.this);
-                final SQLiteDatabase db = mDbHelper.getWritableDatabase();
-//delete by course code instead or name
-                //fix delete to use the correct way of deleting
-                    String sql = "DELETE FROM " +
-                            " course " +
-                            " WHERE " +"coursename"+
-                            " LIKE '" + course_name + "';";
-                    db.execSQL(sql);
-                    restartActivity();
-
-                //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
-                Toast.makeText(CourseList.this,"Course deleted at :\n"+course_name, Toast.LENGTH_SHORT).show();
+                //coursename_view = (TextView) findViewById(R.id.coursename_txtview);
+                //coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
 
 
+
+                //int newpos = pos + 1;
+
+//                DBHelper mDbHelper = new DBHelper(CourseList.this);
+//                final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+////delete by course code instead or name
+//                //fix delete to use the correct way of deleting
+//                String sql = "DELETE FROM " +
+//                        " course " +
+//                        " WHERE " + "coursename" +
+//                        " LIKE '" + courseName + "';";
+//                db.execSQL(sql);
+//                restartActivity();
+//
+//                //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CourseList.this, "Course deleted at :\n" + courseName, Toast.LENGTH_SHORT).show();
 
 
                 return true;
             }
         });
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     private void restartActivity() {

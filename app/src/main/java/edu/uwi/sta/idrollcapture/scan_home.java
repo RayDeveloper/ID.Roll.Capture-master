@@ -25,7 +25,8 @@ import java.util.Arrays;
 
 public class scan_home extends AppCompatActivity  {
     Button button;
-
+    String coursename;
+    String coursecode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +35,30 @@ public class scan_home extends AppCompatActivity  {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Bundle bundle = getIntent().getExtras();
+        if(bundle !=null){
+//        if (bundle.containsKey("coursename")) {
+            coursename = bundle.getString("coursename");
+             coursecode = bundle.getString("coursecode");
+
+            TextView coursename_txtview = (TextView) findViewById(R.id.coursename_txtview);
+            coursename_txtview.setText(coursename);
+            TextView coursecode_txtview = (TextView) findViewById(R.id.coursecode_txtview);
+            coursecode_txtview.setText(coursecode);
+
+
+            // Toast.makeText(scan_home.this, coursename, Toast.LENGTH_SHORT).show();
+
+        }
+
 
         final ImageButton StartCamera = (ImageButton) findViewById(R.id.StartCamera);
         StartCamera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(scan_home.this, ContinuousCaptureActivity.class);
                 startActivity(intent);
+
+
             }
 
 
@@ -50,6 +69,12 @@ public class scan_home extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent intent = new Intent(scan_home.this, Register.class);
                 startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putString("coursename",coursename); // place the position of the selected item
+                bundle.putString("coursecode", coursecode); // place the position of the selected item
+                intent.putExtras(bundle);
+                startActivity(intent);
+
 //                Bundle b=MainActivity.this.getIntent().getExtras();
 //                String[] array=b.getStringArray("ARRAY_LIST");
 //                String str = Arrays.toString(array);
@@ -59,21 +84,7 @@ public class scan_home extends AppCompatActivity  {
         });
 
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle !=null){
-//        if (bundle.containsKey("coursename")) {
-            String coursename = bundle.getString("coursename");
-            String coursecode = bundle.getString("coursecode");
 
-            TextView coursename_txtview = (TextView) findViewById(R.id.coursename_txtview);
-            coursename_txtview.setText(coursename);
-            TextView coursecode_txtview = (TextView) findViewById(R.id.coursecode_txtview);
-            coursecode_txtview.setText(coursecode);
-
-
-           // Toast.makeText(scan_home.this, coursename, Toast.LENGTH_SHORT).show();
-
-        }
 
 
 //        final ImageButton Cam = (ImageButton) findViewById(R.id.Cam);
@@ -111,6 +122,7 @@ public class scan_home extends AppCompatActivity  {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 //    boolean doubleBackToExitPressedOnce = false;
 

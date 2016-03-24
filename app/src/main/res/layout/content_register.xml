@@ -12,4 +12,19 @@
     tools:context="edu.uwi.sta.idrollcapture.Register"
     tools:showIn="@layout/activity_register">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/coursename_reg"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/coursecode_reg"
+        android:layout_below="@+id/coursename_reg"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
