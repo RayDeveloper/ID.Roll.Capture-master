@@ -24,6 +24,9 @@ public class CourseList extends AppCompatActivity {
     SqlHandler sqlHandler;
     List<courses> courseList;
     TextView coursename_view;
+    TextView coursecode_view;
+    String course_code;
+    String course_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +44,18 @@ public class CourseList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
 
                  coursename_view = (TextView) findViewById(R.id.coursename_txtview);
-                TextView coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
+                 coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
+
+                 course_name=coursename_view.getText().toString();
+                 course_code=coursecode_view.getText().toString();
+                //Toast.makeText(CourseList.this,"Course deleted at :\n"+course_name, Toast.LENGTH_SHORT).show();
+
 
                 //textView.getText().toString();
                 Intent i = new Intent(CourseList.this, scan_home.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("coursename", coursename_view.getText().toString()); // place the position of the selected item
                 bundle.putString("coursecode", coursecode_view.getText().toString()); // place the position of the selected item
-
                 i.putExtras(bundle);
                 startActivity(i);
 
@@ -67,19 +74,29 @@ public class CourseList extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int pos, long id) {
+                //I have to add a dialog box to confirm deleting.
+                coursename_view = (TextView) findViewById(R.id.coursename_txtview);
+                coursecode_view = (TextView) findViewById(R.id.coursecode_txtview);
+
+                course_name=coursename_view.getText().toString();
+                course_code=coursecode_view.getText().toString();
+
                 int newpos=pos+1;
 
                 DBHelper mDbHelper = new DBHelper(CourseList.this);
                 final SQLiteDatabase db = mDbHelper.getWritableDatabase();
-//delete by course code instead
+//delete by course code instead or name
+                //fix delete to use the correct way of deleting
                     String sql = "DELETE FROM " +
                             " course " +
                             " WHERE " +"coursename"+
-                            " LIKE " + pos + ";";
+                            " LIKE '" + course_name + "';";
                     db.execSQL(sql);
                     restartActivity();
 
-                Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CourseList.this,"Course deleted at :\n"+course_name, Toast.LENGTH_SHORT).show();
+
 
 
 

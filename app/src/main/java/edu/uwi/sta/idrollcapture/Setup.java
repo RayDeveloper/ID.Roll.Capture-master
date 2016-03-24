@@ -27,6 +27,7 @@ import edu.uwi.sta.idrollcapture.Models.courses;
 public class Setup extends AppCompatActivity {
 int courseID=0;
     int dbnum=0;
+ int   duplicatecheck=-1;
 
     List<courses> courseList;
 
@@ -58,13 +59,16 @@ int courseID=0;
                 String coursecode = code_editText.getText().toString();
                 String datecreated = DateFormat.getDateTimeInstance().format(new Date());
 
-                 Boolean duplicatecheck = duplicateCheck(coursename,coursecode);
-                if (duplicatecheck== false) {
-                    Toast.makeText(Setup.this, "Course already there", Toast.LENGTH_SHORT).show();
+                  duplicatecheck = duplicateCheck(coursename,coursecode);
+                //Toast.makeText(Setup.this, "Duplicatecheck: "+duplicatecheck, Toast.LENGTH_SHORT).show();
+                if (duplicatecheck== 0) {
+                    Snackbar.make(v, "Course name and course code already used", Snackbar.LENGTH_LONG).show();
+                    name_editText.setText("");
+                    code_editText.setText("");
 
+                    //Toast.makeText(Setup.this, "Course already there", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Setup.this, "Course not here ", Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(Setup.this, "Course not here ", Toast.LENGTH_SHORT).show();
 
                     DBHelper mDbHelper = new DBHelper(Setup.this);
                     // Gets the data repository in write mode
@@ -99,7 +103,7 @@ int courseID=0;
                     //courseID++;
                     //Toast.makeText(Setup.this,"db.insert area", Toast.LENGTH_SHORT).show();
                     if (newRowId != 0) {
-                        Toast.makeText(Setup.this, "RowID:" + newRowId, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Setup.this, "RowID:" + newRowId, Toast.LENGTH_SHORT).show();
 
                         Snackbar.make(v, "Course successfully added", Snackbar.LENGTH_LONG)
                                 .setAction("Delete Course", new View.OnClickListener() {
@@ -134,7 +138,9 @@ int courseID=0;
     }
 
 
-    public boolean duplicateCheck(String coursename,String coursecode){
+    public int duplicateCheck(String coursename,String coursecode){
+        //Toast.makeText(Setup.this,"Checking for duplicates", Toast.LENGTH_SHORT).show();
+
         DBHelper mDbHelper = new DBHelper(Setup.this);
         final SQLiteDatabase db = mDbHelper.getWritableDatabase();
         String selectQuery = "SELECT * FROM course where coursename = '"+ coursename + "'"+" and coursecode = '"+ coursecode + "' ; " ;
@@ -142,19 +148,18 @@ int courseID=0;
         List<String> checkList = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
-                String db_coursename = cursor.getString(0);
-                String db_coursecode = cursor.getString(1);
+                String db_coursename= cursor.getString(cursor.getColumnIndex("coursename"));
+                String db_coursecode= cursor.getString(cursor.getColumnIndex("coursecode"));
+                //Toast.makeText(Setup.this,db_coursename+ "\n"+db_coursecode , Toast.LENGTH_SHORT).show();
                 if(db_coursename.equals(coursename)&& db_coursecode.equals(coursecode)){
-                    Toast.makeText(Setup.this, "comparision "+"\n"+"\n"+"\n" , Toast.LENGTH_SHORT).show();
-
-
-                    return false;
+                    //Toast.makeText(Setup.this, "comparision "+"\n"+"\n"+"\n" , Toast.LENGTH_SHORT).show();
+                    return 0;
                 }
             } while (cursor.moveToNext());
         }
         db.close();
         cursor.close();
-        return true;
+        return 1;
     }
 
     }
