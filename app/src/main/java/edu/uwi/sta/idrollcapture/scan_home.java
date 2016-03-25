@@ -68,7 +68,7 @@ public class scan_home extends AppCompatActivity  {
         Register.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(scan_home.this, Register.class);
-                startActivity(intent);
+                //startActivity(intent);
                 Bundle bundle = new Bundle();
                 bundle.putString("coursename",coursename); // place the position of the selected item
                 bundle.putString("coursecode", coursecode); // place the position of the selected item
