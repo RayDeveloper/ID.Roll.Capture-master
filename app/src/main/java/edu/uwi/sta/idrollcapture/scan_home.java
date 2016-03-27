@@ -56,6 +56,10 @@ public class scan_home extends AppCompatActivity  {
         StartCamera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(scan_home.this, ContinuousCaptureActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("coursename",coursename); // place the position of the selected item
+                bundle.putString("coursecode", coursecode); // place the position of the selected item
+                intent.putExtras(bundle);
                 startActivity(intent);
 
 

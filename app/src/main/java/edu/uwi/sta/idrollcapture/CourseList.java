@@ -71,7 +71,7 @@ public class CourseList extends AppCompatActivity {
 
                 //course_name=coursename_view.getText().toString();
                 //course_code=coursecode_view.getText().toString();
-               Toast.makeText(CourseList.this, "List string value :\n" +courseName+"\n"+courseCode, Toast.LENGTH_SHORT).show();
+               //Toast.makeText(CourseList.this, "List string value :\n" +courseName+"\n"+courseCode, Toast.LENGTH_SHORT).show();
 
 
                 //textView.getText().toString();
@@ -104,9 +104,10 @@ public class CourseList extends AppCompatActivity {
                 courseCode = selectedFromList.getCode();
 
 
+                //also delete table too
                 new AlertDialog.Builder(CourseList.this)
                         .setTitle("Delete Course")
-                        .setMessage("Are you sure you want to delete this course?")
+                        .setMessage("Are you sure you want to delete this course? The register will also be deleted.")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 DBHelper mDbHelper = new DBHelper(CourseList.this);
@@ -118,6 +119,12 @@ public class CourseList extends AppCompatActivity {
                                         " WHERE " + "coursename" +
                                         " LIKE '" + courseName + "';";
                                 db.execSQL(sql);
+                                String new_coursename=courseName.replaceAll("\\s+","");
+                                String new_coursecode=courseCode.replaceAll("\\s+","");
+                                String table_name=new_coursename+new_coursecode;
+                                String delsql="DROP TABLE "+ table_name +";";
+                                db.execSQL(delsql);
+                                db.close();
                                 restartActivity();
 
                                 //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
