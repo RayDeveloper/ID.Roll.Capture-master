@@ -12,49 +12,44 @@
     tools:context="edu.uwi.sta.idrollcapture.CourseList"
     tools:showIn="@layout/activity_course_list">
 
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:text="Course List"-->
+        <!--android:id="@+id/courseList_txtview"-->
+        <!--android:height="50dp"-->
+        <!--android:textColor="#fbfafa"-->
+        <!--android:textStyle="bold"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/course_code"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Course List"
-        android:id="@+id/courseList_txtview"
-        android:height="50dp"
-        android:textColor="#fbfafa"
-        android:textStyle="bold"
+        android:text="@string/code_heading"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:id="@+id/courseList_view"
-=======
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Course Code"
-        android:id="@+id/textView12"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignRight="@+id/redheading"
-        android:layout_alignEnd="@+id/redheading" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Course Name"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/redheading"
->>>>>>> origin/master
+        android:text="@string/course_heading"
+        android:id="@+id/course_name"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/courseList_txtview" />
+        android:layout_alignParentStart="true" />
 
     <ListView
         android:layout_width="400dp"
         android:layout_height="430dp"
         android:id="@+id/courseList_view"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -77,18 +77,20 @@
         android:layout_alignRight="@+id/textView8"
         android:layout_alignEnd="@+id/textView8"
         android:layout_alignLeft="@+id/imageView6"
-        android:layout_alignStart="@+id/imageView6" />
+        android:layout_alignStart="@+id/imageView6"
+        android:capitalize="words" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/code_editText"
-        android:hint="Course Code"
+        android:hint="Course Code e.g COMP 3275"
         android:layout_below="@+id/name_editText"
         android:layout_alignLeft="@+id/name_editText"
         android:layout_alignStart="@+id/name_editText"
         android:layout_marginTop="43dp"
         android:layout_alignRight="@+id/name_editText"
-        android:layout_alignEnd="@+id/name_editText" />
+        android:layout_alignEnd="@+id/name_editText"
+        android:capitalize="characters" />
 
 </RelativeLayout>
