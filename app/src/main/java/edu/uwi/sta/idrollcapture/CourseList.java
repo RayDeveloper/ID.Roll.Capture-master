@@ -1,8 +1,10 @@
 package edu.uwi.sta.idrollcapture;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -35,6 +37,7 @@ public class CourseList extends AppCompatActivity {
     List<courses> courseList;
     TextView coursename_view;
     TextView coursecode_view;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     String courseName;
     String courseCode;
@@ -96,6 +99,10 @@ public class CourseList extends AppCompatActivity {
                 bundle.putString("coursename",courseName); // place the position of the selected item
                 bundle.putString("coursecode",courseCode); // place the position of the selected item
                 i.putExtras(bundle);
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString("coursename", courseName);
+                editor.putString("coursecode", courseCode);
+                editor.apply();
                 startActivity(i);
 
 
@@ -193,20 +200,20 @@ public class CourseList extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-
-        Intent intent = new Intent(CourseList.this, MainActivity.class);
-        //startActivity(intent);
-//            Bundle bundle = new Bundle();
-//            bundle.putString("coursename", coursename); // place the position of the selected item
-//            bundle.putString("coursecode", coursecode); // place the position of the selected item
-//            intent.putExtras(bundle);
-//            //startActivityForResult(intent, 2);
-        startActivity(intent);
-
-        super.onBackPressed();
-    }
+//    @Override
+//    public void onBackPressed() {
+//
+//        Intent intent = new Intent(CourseList.this, MainActivity.class);
+//        //startActivity(intent);
+////            Bundle bundle = new Bundle();
+////            bundle.putString("coursename", coursename); // place the position of the selected item
+////            bundle.putString("coursecode", coursecode); // place the position of the selected item
+////            intent.putExtras(bundle);
+////            //startActivityForResult(intent, 2);
+//        startActivity(intent);
+//
+//        super.onBackPressed();
+//    }
 
 }
 

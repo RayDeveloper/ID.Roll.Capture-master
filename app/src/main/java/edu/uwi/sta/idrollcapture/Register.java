@@ -37,6 +37,11 @@ public class Register extends AppCompatActivity {
     TextView coursecode_txtview;
     List<ID> courseList;
     String table_name;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    String course_name;
+    String course_code;
+    String new_coursecode;
+    String new_coursename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,21 +63,30 @@ public class Register extends AppCompatActivity {
 
 
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle !=null) {
+       // Bundle bundle = getIntent().getExtras();
+        //if(bundle !=null) {
 //        if (bundle.containsKey("coursename")) {
-             coursename = bundle.getString("coursename");
-             coursecode = bundle.getString("coursecode");
+             //coursename = bundle.getString("coursename");
+             //coursecode = bundle.getString("coursecode");
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+         course_name = prefs.getString("coursename",null);//"No name defined" is the default value.
+         course_code = prefs.getString("coursecode",null);//"No name defined" is the default value.
+
+
              coursename_txtview = (TextView) findViewById(R.id.coursename_reg);
-            coursename_txtview.setText(coursename);
+            coursename_txtview.setText(course_name);
              coursecode_txtview = (TextView) findViewById(R.id.coursecode_reg);
-            coursecode_txtview.setText(coursecode);
-            String new_coursecode= coursecode.replaceAll("\\s+","");
-            String new_coursename= coursename.replaceAll("\\s+","");
+            coursecode_txtview.setText(course_code);
+
+
+
+             new_coursename= course_name.replaceAll("\\s+","");
+             new_coursecode= course_code.replaceAll("\\s+","");
 
             table_name=new_coursename+new_coursecode;
 
-        }
+        //}
         //Toast.makeText(Register.this,"TableName"+ table_name, Toast.LENGTH_SHORT).show();
 
         final ListView listView = (ListView) findViewById(R.id.register_lv);
@@ -134,35 +148,35 @@ public class Register extends AppCompatActivity {
         return FavList;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //int val=item.getItemId();
-        //if(val==R.id.home){
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                Intent intent = new Intent(Register.this, scan_home.class);
-            //startActivity(intent);
-            Bundle bundle = new Bundle();
-            bundle.putString("coursename", coursename); // place the position of the selected item
-            bundle.putString("coursecode", coursecode); // place the position of the selected item
-            intent.putExtras(bundle);
-            startActivity(intent);
-                return true;
-       }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int val=item.getItemId();
+//        if(val==R.id.home){
+//        //switch (item.getItemId()) {
+//            // Respond to the action bar's Up/Home button
+//            //case android.R.id.home:
+//                Intent intent = new Intent(Register.this, scan_home.class);
+//            //startActivity(intent);
+////            Bundle bundle = new Bundle();
+////            bundle.putString("coursename", coursename); // place the position of the selected item
+////            bundle.putString("coursecode", coursecode); // place the position of the selected item
+////            intent.putExtras(bundle);
+//            startActivity(intent);
+//                //return true;
+//       }
+//        return super.onOptionsItemSelected(item);
+//    }
 
-public void onBackPressed(){
-    Intent intent = new Intent(Register.this, scan_home.class);
-    //startActivity(intent);
-    Bundle bundle = new Bundle();
-    bundle.putString("coursename", coursename); // place the position of the selected item
-    bundle.putString("coursecode", coursecode); // place the position of the selected item
-    intent.putExtras(bundle);
-    startActivity(intent);
-
-}
+//@Override
+//public void onBackPressed(){
+//    Intent intent = new Intent(Register.this, scan_home.class);
+//    Bundle bundle = new Bundle();
+//    bundle.putString("coursename", coursename); // place the position of the selected item
+//    bundle.putString("coursecode", coursecode); // place the position of the selected item
+//    intent.putExtras(bundle);
+//    startActivity(intent);
+//
+//}
 
 
 }

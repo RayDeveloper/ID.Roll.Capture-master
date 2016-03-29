@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class scan_home extends AppCompatActivity  {
     String filename;
     int numberofIDS=0;
     String TotalIDs="";
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,16 @@ public class scan_home extends AppCompatActivity  {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+            String course_name = prefs.getString("coursename",null);//"No name defined" is the default value.
+            String course_code = prefs.getString("coursecode",null);//"No name defined" is the default value.
+            TextView coursename_txtview = (TextView) findViewById(R.id.coursename_txtview);
+            coursename_txtview.setText(course_name);
+            TextView coursecode_txtview = (TextView) findViewById(R.id.coursecode_txtview);
+            coursecode_txtview.setText(course_code);
+
+
         Bundle bundle = getIntent().getExtras();
         if(bundle !=null){
 //        if (bundle.containsKey("coursename")) {
@@ -70,25 +82,28 @@ public class scan_home extends AppCompatActivity  {
             String new_coursecode=coursecode.replaceAll("\\s+","");
              filename=new_coursename+new_coursecode;
 
-            TextView coursename_txtview = (TextView) findViewById(R.id.coursename_txtview);
-            coursename_txtview.setText(coursename);
-            TextView coursecode_txtview = (TextView) findViewById(R.id.coursecode_txtview);
-            coursecode_txtview.setText(coursecode);
+//            TextView coursename_txtview = (TextView) findViewById(R.id.coursename_txtview);
+//            coursename_txtview.setText(coursename);
+//            TextView coursecode_txtview = (TextView) findViewById(R.id.coursecode_txtview);
+//            coursecode_txtview.setText(coursecode);
+
+            //SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
 
 
             // Toast.makeText(scan_home.this, coursename, Toast.LENGTH_SHORT).show();
-
         }
+
+
 
 
         final ImageButton StartCamera = (ImageButton) findViewById(R.id.StartCamera);
         StartCamera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(scan_home.this, ContinuousCaptureActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("coursename",coursename); // place the position of the selected item
-                bundle.putString("coursecode", coursecode); // place the position of the selected item
-                intent.putExtras(bundle);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("coursename",coursename); // place the position of the selected item
+//                bundle.putString("coursecode", coursecode); // place the position of the selected item
+//                intent.putExtras(bundle);
                 startActivity(intent);
 
 
@@ -235,20 +250,24 @@ public class scan_home extends AppCompatActivity  {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        //int val=item.getItemId();
+//        //if(val==R.id.home){
+////        switch (item.getItemId()) {
+////            // Respond to the action bar's Up/Home button
+////            case android.R.id.home:
+////                Intent intent = new Intent(scan_home.this, scan_home.class);
+////            //startActivity(intent);
+////            Bundle bundle = new Bundle();
+////            bundle.putString("coursename", coursename); // place the position of the selected item
+////            bundle.putString("coursecode", coursecode); // place the position of the selected item
+////            intent.putExtras(bundle);
+////            startActivity(intent);
+////                return true;
+////       }
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
 //    boolean doubleBackToExitPressedOnce = false;
@@ -273,20 +292,20 @@ public class scan_home extends AppCompatActivity  {
 //    }
 
 
-        @Override
-    public void onBackPressed() {
-
-            Intent intent = new Intent(scan_home.this, CourseList.class);
-            //startActivity(intent);
-//            Bundle bundle = new Bundle();
-//            bundle.putString("coursename", coursename); // place the position of the selected item
-//            bundle.putString("coursecode", coursecode); // place the position of the selected item
-//            intent.putExtras(bundle);
-//            //startActivityForResult(intent, 2);
-            startActivity(intent);
-
-            super.onBackPressed();
-    }
+//        @Override
+//    public void onBackPressed() {
+//
+//            Intent intent = new Intent(scan_home.this, CourseList.class);
+//            //startActivity(intent);
+////            Bundle bundle = new Bundle();
+////            bundle.putString("coursename", coursename); // place the position of the selected item
+////            bundle.putString("coursecode", coursecode); // place the position of the selected item
+////            intent.putExtras(bundle);
+////            //startActivityForResult(intent, 2);
+//            startActivity(intent);
+//
+//           // super.onBackPressed();
+//    }
 
 
 }
