@@ -1,6 +1,8 @@
 package edu.uwi.sta.idrollcapture;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,12 +24,16 @@ import java.util.List;
 
 import edu.uwi.sta.idrollcapture.Models.CourseContract;
 import edu.uwi.sta.idrollcapture.Models.DBHelper;
+import edu.uwi.sta.idrollcapture.Models.IDsContract;
+import edu.uwi.sta.idrollcapture.Models.IDsDBHelper;
 import edu.uwi.sta.idrollcapture.Models.courses;
 
 public class Setup extends AppCompatActivity {
 int courseID=0;
     int dbnum=0;
  int   duplicatecheck=-1;
+    String coursename;
+    String coursecode;
 
     List<courses> courseList;
 
@@ -46,6 +52,7 @@ int courseID=0;
                         .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText name_editText = (EditText) findViewById(R.id.name_editText);
         final EditText code_editText = (EditText) findViewById(R.id.code_editText);
@@ -55,16 +62,50 @@ int courseID=0;
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String coursename = name_editText.getText().toString();
-                String coursecode = code_editText.getText().toString();
+                 coursename = name_editText.getText().toString();
+                 coursecode = code_editText.getText().toString();
                 String datecreated = DateFormat.getDateTimeInstance().format(new Date());
 
                   duplicatecheck = duplicateCheck(coursename,coursecode);
                 //Toast.makeText(Setup.this, "Duplicatecheck: "+duplicatecheck, Toast.LENGTH_SHORT).show();
                 if (duplicatecheck== 0) {
-                    Snackbar.make(v, "Course name and course code already used", Snackbar.LENGTH_LONG).show();
-                    name_editText.setText("");
-                    code_editText.setText("");
+
+                    new AlertDialog.Builder(Setup.this)
+                            .setTitle("Course Addition")
+                            .setMessage("Course name and course code already used.Please choose another name for either.")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //DBHelper mDbHelper = new DBHelper(CourseList.this);
+                                    //final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+                                    //delete by course code instead or name
+                                    //fix delete to use the correct way of deleting
+                                   // String sql = "DELETE FROM " +
+//                                            " course " +
+//                                            " WHERE " + "coursename" +
+//                                            " LIKE '" + courseName + "'"+" and "+ " coursecode "+ " LIKE '" + courseCode+ "' ;";
+                                   // db.execSQL(sql);
+                                   // String new_coursename=courseName.replaceAll("\\s+","");
+                                   // String new_coursecode=courseCode.replaceAll("\\s+","");
+                                    //String table_name=new_coursename+new_coursecode;
+                                    //String delsql="DROP TABLE "+ table_name +";";
+                                    //db.execSQL(delsql);
+                                    //db.close();
+                                    //restartActivity();
+
+                                    //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(CourseList.this, "Course deleted at :\n" + courseName, Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // do nothing
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                    //Snackbar.make(v, "Course name and course code already used", Snackbar.LENGTH_LONG).show();
+                    //name_editText.setText("");
+                    //code_editText.setText("");
 
                     //Toast.makeText(Setup.this, "Course already there", Toast.LENGTH_SHORT).show();
                 } else {
@@ -74,8 +115,8 @@ int courseID=0;
                     // Gets the data repository in write mode
                     final SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
-                    DBHelper help = new DBHelper(getBaseContext());
-                    courseList = help.getCourse();
+                    //DBHelper help = new DBHelper(getBaseContext());
+                    //courseList = help.getCourse();
 //                courses[] customs = new courses[courseList.size()];
 //                courseList.toArray(customs);
 //                Object last = coursename;
@@ -126,11 +167,22 @@ int courseID=0;
                                 .show();
 
                     }
+                    //final EditText name_editText = (EditText) findViewById(R.id.name_editText);
+                    //final EditText code_editText = (EditText) findViewById(R.id.code_editText);
+                    //coursename = name_editText.getText().toString();
+                    //coursecode = code_editText.getText().toString();
 
+                    String new_coursename=coursename.replaceAll("\\s+","");
+                    String new_coursecode=coursecode.replaceAll("\\s+","");
+                    String table_name=new_coursename+new_coursecode;
+                    //Toast.makeText(Setup.this,"TableName: " + table_name,Toast.LENGTH_LONG).show();
+                    AddDesiredTable(table_name);
+//                    IDsDBHelper idhelp = new IDsDBHelper(Setup.this,table_name);
+//                    //idhelp.onCreate(db);
+//                    idhelp.createFriendTable(table_name);
 
                     name_editText.setText("");
                     code_editText.setText("");
-
 
                 }
             }
@@ -160,6 +212,24 @@ int courseID=0;
         db.close();
         cursor.close();
         return 1;
+    }
+
+
+    public void AddDesiredTable(String TableName){
+    /*At first you will need a Database object.Lets create it.*/
+        DBHelper mDbHelper = new DBHelper(Setup.this);
+        // Gets the data repository in write mode
+        final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+    /*then call 'execSQL()' on it. Don't forget about using TableName Variable as tablename.*/
+        db.execSQL( "CREATE TABLE IF NOT EXISTS " + TableName + " ( " +
+                IDsContract.IDsEntry._ID + "INTEGER" + " PRIMARY KEY, "+
+                IDsContract.IDsEntry.COLUMN_NAME_idnumber + " TEXT " + " , " +
+                IDsContract.IDsEntry.COLUMN_NAME_time + " TEXT " + " , " +
+                IDsContract.IDsEntry.COLUMN_NAME_DATE_CREATED + " TEXT " + " );");
+
+        //Toast.makeText(Setup.this,"TableName Created: " + TableName,Toast.LENGTH_LONG).show();
+
     }
 
     }

@@ -236,12 +236,17 @@
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\camera.png",
         "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\src\\main\\res\\drawable\\camera.png"
     },
     {
         "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
         "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable\\abc_tab_indicator_material.xml"
+=======
+        "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\export.png",
+        "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\drawable\\export.png"
+>>>>>>> origin/master
     },
     {
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\camera.png",

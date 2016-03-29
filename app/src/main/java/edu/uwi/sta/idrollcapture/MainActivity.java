@@ -1,5 +1,7 @@
 package edu.uwi.sta.idrollcapture;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,6 +21,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
     //anna
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,22 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if(id== R.id.action_about){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Project for COMP 3275")
+                    .setMessage("This project was done by:\n Raydon Davis-813117991\n Kylie  Soogrim-811000178\nLeslie Yearwood-806002984\nAnnastacy Mohan-809000726\n Thank you for downloading this app")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+
             return true;
         }
 

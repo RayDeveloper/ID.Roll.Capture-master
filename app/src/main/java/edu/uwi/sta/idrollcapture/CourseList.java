@@ -1,11 +1,15 @@
 package edu.uwi.sta.idrollcapture;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -32,6 +37,7 @@ public class CourseList extends AppCompatActivity {
     List<courses> courseList;
     TextView coursename_view;
     TextView coursecode_view;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     String courseName;
     String courseCode;
@@ -45,6 +51,19 @@ public class CourseList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         sqlHandler = new SqlHandler(this);
 
         final ListView listView = (ListView) findViewById(R.id.courseList_view);
@@ -71,7 +90,7 @@ public class CourseList extends AppCompatActivity {
 
                 //course_name=coursename_view.getText().toString();
                 //course_code=coursecode_view.getText().toString();
-               Toast.makeText(CourseList.this, "List string value :\n" +courseName+"\n"+courseCode, Toast.LENGTH_SHORT).show();
+               //Toast.makeText(CourseList.this, "List string value :\n" +courseName+"\n"+courseCode, Toast.LENGTH_SHORT).show();
 
 
                 //textView.getText().toString();
@@ -80,6 +99,10 @@ public class CourseList extends AppCompatActivity {
                 bundle.putString("coursename",courseName); // place the position of the selected item
                 bundle.putString("coursecode",courseCode); // place the position of the selected item
                 i.putExtras(bundle);
+                SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString("coursename", courseName);
+                editor.putString("coursecode", courseCode);
+                editor.apply();
                 startActivity(i);
 
 
@@ -104,9 +127,10 @@ public class CourseList extends AppCompatActivity {
                 courseCode = selectedFromList.getCode();
 
 
+                //also delete table too
                 new AlertDialog.Builder(CourseList.this)
                         .setTitle("Delete Course")
-                        .setMessage("Are you sure you want to delete this course?")
+                        .setMessage("Are you sure you want to delete this course? The register will also be deleted.")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 DBHelper mDbHelper = new DBHelper(CourseList.this);
@@ -116,8 +140,14 @@ public class CourseList extends AppCompatActivity {
                                 String sql = "DELETE FROM " +
                                         " course " +
                                         " WHERE " + "coursename" +
-                                        " LIKE '" + courseName + "';";
+                                        " LIKE '" + courseName + "'"+" and "+ " coursecode "+ " LIKE '" + courseCode+ "' ;";
                                 db.execSQL(sql);
+                                String new_coursename=courseName.replaceAll("\\s+","");
+                                String new_coursecode=courseCode.replaceAll("\\s+","");
+                                String table_name=new_coursename+new_coursecode;
+                                String delsql="DROP TABLE "+ table_name +";";
+                                db.execSQL(delsql);
+                                db.close();
                                 restartActivity();
 
                                 //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
@@ -169,6 +199,21 @@ public class CourseList extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+//    @Override
+//    public void onBackPressed() {
+//
+//        Intent intent = new Intent(CourseList.this, MainActivity.class);
+//        //startActivity(intent);
+////            Bundle bundle = new Bundle();
+////            bundle.putString("coursename", coursename); // place the position of the selected item
+////            bundle.putString("coursecode", coursecode); // place the position of the selected item
+////            intent.putExtras(bundle);
+////            //startActivityForResult(intent, 2);
+//        startActivity(intent);
+//
+//        super.onBackPressed();
+//    }
 
 }
 

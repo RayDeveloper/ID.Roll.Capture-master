@@ -15,16 +15,54 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
         android:id="@+id/coursename_reg"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
         android:id="@+id/coursecode_reg"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/coursename_reg"
+        android:layout_toEndOf="@+id/coursename_reg"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="StudentID"
+        android:id="@+id/textView2"
         android:layout_below="@+id/coursename_reg"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Time Scanned"
+        android:id="@+id/textView4"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/register_lv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
