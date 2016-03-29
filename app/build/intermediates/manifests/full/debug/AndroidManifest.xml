@@ -99,6 +99,10 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
+            android:name="edu.uwi.sta.idrollcapture.CreateNewCourse"
+            android:label="@string/title_activity_create_new_course"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="sensorLandscape"

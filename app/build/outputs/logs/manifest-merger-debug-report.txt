@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:2:1-71:12
+ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:2:1-78:12
 	package
 		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\
 		INJECTED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:5:5-69:19
+ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:5:5-76:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.1.1] C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\AndroidManifest.xml:22:5-20
@@ -123,12 +123,20 @@ ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\
 	android:name
 		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:56:13-37
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:66:9-68:69
+ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:68:9-70:69
 MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:68:13-66
+		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:70:13-66
 	android:name
-		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:67:13-58
+		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:69:13-58
+activity#edu.uwi.sta.idrollcapture.CreateNewCourse
+ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:72:9-75:68
+	android:label
+		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:74:13-69
+	android:theme
+		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:75:13-56
+	android:name
+		ADDED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml:73:13-44
 uses-sdk
 INJECTED from C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] C:\Users\Annastacy Mohan\Desktop\ID.Roll.Capture-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\AndroidManifest.xml:20:5-43

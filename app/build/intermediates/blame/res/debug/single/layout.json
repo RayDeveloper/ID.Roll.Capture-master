@@ -356,6 +356,10 @@
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
+        "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_create_new_course.xml",
+        "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\src\\main\\res\\layout\\content_create_new_course.xml"
+    },
+    {
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scan_home.xml",
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\layout\\activity_scan_home.xml"
     },
@@ -414,6 +418,10 @@
     {
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setup.xml",
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\layout\\activity_setup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_new_course.xml",
+        "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\src\\main\\res\\layout\\activity_create_new_course.xml"
     },
     {
         "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",

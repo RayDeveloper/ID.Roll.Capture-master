@@ -133,4 +133,6 @@
     <string name="turn_off_flashlight">Turn Flash off</string>
     <string name="title_activity_delete">delete</string>
     <string name="title_activity_register">Register</string>
+    <string name="create_new_course">Create New Course</string>
+    <string name="title_activity_create_new_course">CreateNewCourse</string>
 </resources>
