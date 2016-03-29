@@ -134,6 +134,10 @@
     <string name="turn_off_flashlight">Turn Flash off</string>
     <string name="title_activity_delete">delete</string>
     <string name="title_activity_register">Register</string>
+<<<<<<< HEAD
+    <string name="create_new_course">Create New Course</string>
+    <string name="title_activity_create_new_course">CreateNewCourse</string>
+=======
     <string name="preference_file_key">Prefs</string>
     <string name="coursename">Prefs</string>
     <string name="coursecode">Prefs</string>
@@ -143,4 +147,5 @@
 
 
 
+>>>>>>> origin/master
 </resources>

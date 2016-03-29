@@ -12,15 +12,6 @@
     tools:context="edu.uwi.sta.idrollcapture.CourseList"
     tools:showIn="@layout/activity_course_list">
 
-    <ImageView
-        android:layout_width="1000dp"
-        android:layout_height="50dp"
-        android:id="@+id/redheading"
-        android:src="#f50808"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,6 +27,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:id="@+id/courseList_view"
+=======
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Course Code"
         android:id="@+id/textView12"
@@ -50,8 +44,10 @@
         android:text="Course Name"
         android:id="@+id/textView6"
         android:layout_below="@+id/redheading"
+>>>>>>> origin/master
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/courseList_txtview" />
 
     <ListView
         android:layout_width="400dp"

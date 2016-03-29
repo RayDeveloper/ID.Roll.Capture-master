@@ -4,6 +4,10 @@
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+=======
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\pen.png",
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\mipmap-hdpi\\pen.png"
     },
@@ -14,5 +18,6 @@
     {
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\business.png",
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\mipmap-hdpi\\business.png"
+>>>>>>> origin/master
     }
 ]

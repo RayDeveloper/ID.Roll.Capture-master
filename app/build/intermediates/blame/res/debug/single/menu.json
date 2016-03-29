@@ -2,5 +2,13 @@
     {
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_actionbar.xml",
+        "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\src\\main\\res\\menu\\menu_actionbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\src\\main\\res\\menu\\menu_main.xml"
     }
 ]

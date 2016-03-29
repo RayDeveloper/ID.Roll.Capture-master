@@ -31,7 +31,7 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#e22026</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_signin_btn_dark_text_default">@android:color/white</color>
@@ -381,9 +381,13 @@
     <string name="contents_phone">Phone number</string>
     <string name="contents_sms">SMS address</string>
     <string name="contents_text">Plain text</string>
+<<<<<<< HEAD
+    <string name="create_new_course">Create New Course</string>
+=======
     <string name="coursecode">Prefs</string>
     <string name="coursename">Prefs</string>
     <string name="default_">default</string>
+>>>>>>> origin/master
     <string name="history_clear_one_history_text">Clear</string>
     <string name="history_clear_text">Clear history</string>
     <string name="history_email_title">Barcode Scanner history</string>
@@ -479,6 +483,7 @@
     <string name="sbc_name">Google Book Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_course_list">CourseList</string>
+    <string name="title_activity_create_new_course">CreateNewCourse</string>
     <string name="title_activity_delete">delete</string>
     <string name="title_activity_edit_course">EditCourse</string>
     <string name="title_activity_register">Register</string>

@@ -20,6 +20,8 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
+    //anna
+    //anna2
 
 
     @Override
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         final ImageView newCourse = (ImageView) findViewById(R.id.newCourse);
         newCourse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Setup.class);
+               // Intent intent = new Intent(MainActivity.this, Setup.class);
+                Intent intent = new Intent(MainActivity.this, CreateNewCourse.class);
                 startActivity(intent);
             }
         });

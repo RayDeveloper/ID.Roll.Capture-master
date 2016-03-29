@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\raw\\zxing_beep.ogg",
         "source": "C:\\Users\\Raydon\\Desktop\\Android\\ID.Roll.Capture-master\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\3.0.2\\res\\raw\\zxing_beep.ogg"
+    },
+    {
+        "merged": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\res\\merged\\debug\\raw\\zxing_beep.ogg",
+        "source": "C:\\Users\\Annastacy Mohan\\Desktop\\ID.Roll.Capture-master\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\3.0.2\\res\\raw\\zxing_beep.ogg"
     }
 ]

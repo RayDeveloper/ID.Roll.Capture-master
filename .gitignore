@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -25,19 +26,53 @@ $RECYCLE.BIN/
 # OSX
 # =========================
 
+=======
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+>>>>>>> mohan
 .DS_Store
-.AppleDouble
-.LSOverride
+/build
+/captures
 
-# Thumbnails
+# Built application files
+/*/build/
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle generated files
+.gradle/
+
+# Signing files
+.signing/
+
+# User-specific configurations
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+*.iml
+
+# OS-specific files
+.DS_Store
+.DS_Store?
 ._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
 .Spotlight-V100
-.TemporaryItems
 .Trashes
+<<<<<<< HEAD
 .VolumeIcon.icns
 
 # Directories potentially created on remote AFP share
@@ -82,5 +117,7 @@ local.properties
 ._*
 .Spotlight-V100
 .Trashes
+=======
+>>>>>>> mohan
 ehthumbs.db
 Thumbs.db

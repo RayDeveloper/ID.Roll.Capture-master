@@ -8,6 +8,8 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
+<<<<<<< HEAD
+=======
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
@@ -15,5 +17,6 @@
         app:showAsAction="never" />
 
 
+>>>>>>> origin/master
 
 </menu>
