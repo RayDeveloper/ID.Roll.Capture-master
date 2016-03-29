@@ -1,6 +1,8 @@
 package edu.uwi.sta.idrollcapture;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -50,6 +52,7 @@ int courseID=0;
                         .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText name_editText = (EditText) findViewById(R.id.name_editText);
         final EditText code_editText = (EditText) findViewById(R.id.code_editText);
@@ -66,7 +69,41 @@ int courseID=0;
                   duplicatecheck = duplicateCheck(coursename,coursecode);
                 //Toast.makeText(Setup.this, "Duplicatecheck: "+duplicatecheck, Toast.LENGTH_SHORT).show();
                 if (duplicatecheck== 0) {
-                    Snackbar.make(v, "Course name and course code already used", Snackbar.LENGTH_LONG).show();
+
+                    new AlertDialog.Builder(Setup.this)
+                            .setTitle("Course Addition")
+                            .setMessage("Course name and course code already used.Please choose another name for either.")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //DBHelper mDbHelper = new DBHelper(CourseList.this);
+                                    //final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+                                    //delete by course code instead or name
+                                    //fix delete to use the correct way of deleting
+                                   // String sql = "DELETE FROM " +
+//                                            " course " +
+//                                            " WHERE " + "coursename" +
+//                                            " LIKE '" + courseName + "'"+" and "+ " coursecode "+ " LIKE '" + courseCode+ "' ;";
+                                   // db.execSQL(sql);
+                                   // String new_coursename=courseName.replaceAll("\\s+","");
+                                   // String new_coursecode=courseCode.replaceAll("\\s+","");
+                                    //String table_name=new_coursename+new_coursecode;
+                                    //String delsql="DROP TABLE "+ table_name +";";
+                                    //db.execSQL(delsql);
+                                    //db.close();
+                                    //restartActivity();
+
+                                    //Toast.makeText(CourseList.this,"Course deleted at :\n"+"POS: "+newpos+"\n"+"ID: "+id, Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(CourseList.this, "Course deleted at :\n" + courseName, Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // do nothing
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                    //Snackbar.make(v, "Course name and course code already used", Snackbar.LENGTH_LONG).show();
                     //name_editText.setText("");
                     //code_editText.setText("");
 
@@ -191,7 +228,7 @@ int courseID=0;
                 IDsContract.IDsEntry.COLUMN_NAME_time + " TEXT " + " , " +
                 IDsContract.IDsEntry.COLUMN_NAME_DATE_CREATED + " TEXT " + " );");
 
-        Toast.makeText(Setup.this,"TableName Created: " + TableName,Toast.LENGTH_LONG).show();
+        //Toast.makeText(Setup.this,"TableName Created: " + TableName,Toast.LENGTH_LONG).show();
 
     }
 

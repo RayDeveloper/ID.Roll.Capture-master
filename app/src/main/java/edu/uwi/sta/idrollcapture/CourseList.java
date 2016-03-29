@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -45,6 +48,19 @@ public class CourseList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         sqlHandler = new SqlHandler(this);
 
         final ListView listView = (ListView) findViewById(R.id.courseList_view);
@@ -117,7 +133,7 @@ public class CourseList extends AppCompatActivity {
                                 String sql = "DELETE FROM " +
                                         " course " +
                                         " WHERE " + "coursename" +
-                                        " LIKE '" + courseName + "';";
+                                        " LIKE '" + courseName + "'"+" and "+ " coursecode "+ " LIKE '" + courseCode+ "' ;";
                                 db.execSQL(sql);
                                 String new_coursename=courseName.replaceAll("\\s+","");
                                 String new_coursecode=courseCode.replaceAll("\\s+","");
@@ -176,6 +192,21 @@ public class CourseList extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(CourseList.this, MainActivity.class);
+        //startActivity(intent);
+//            Bundle bundle = new Bundle();
+//            bundle.putString("coursename", coursename); // place the position of the selected item
+//            bundle.putString("coursecode", coursecode); // place the position of the selected item
+//            intent.putExtras(bundle);
+//            //startActivityForResult(intent, 2);
+        startActivity(intent);
+
+        super.onBackPressed();
+    }
 
 }
 

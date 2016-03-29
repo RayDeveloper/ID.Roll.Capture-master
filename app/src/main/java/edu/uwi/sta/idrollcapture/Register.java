@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -79,6 +81,12 @@ public class Register extends AppCompatActivity {
         IDListAdapter adapter = new IDListAdapter(Register.this, courseList);
         listView.setAdapter(adapter);
 
+//        Intent intent = new Intent();
+//        intent.putExtra("coursename", coursename);
+//        intent.putExtra("coursecode", coursecode);
+//        setResult(2, intent);
+//        finish();//finishing activity
+
     }
 
 
@@ -126,6 +134,35 @@ public class Register extends AppCompatActivity {
         return FavList;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //int val=item.getItemId();
+        //if(val==R.id.home){
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent intent = new Intent(Register.this, scan_home.class);
+            //startActivity(intent);
+            Bundle bundle = new Bundle();
+            bundle.putString("coursename", coursename); // place the position of the selected item
+            bundle.putString("coursecode", coursecode); // place the position of the selected item
+            intent.putExtras(bundle);
+            startActivity(intent);
+                return true;
+       }
+        return super.onOptionsItemSelected(item);
+    }
+
+public void onBackPressed(){
+    Intent intent = new Intent(Register.this, scan_home.class);
+    //startActivity(intent);
+    Bundle bundle = new Bundle();
+    bundle.putString("coursename", coursename); // place the position of the selected item
+    bundle.putString("coursecode", coursecode); // place the position of the selected item
+    intent.putExtras(bundle);
+    startActivity(intent);
+
+}
 
 
 }

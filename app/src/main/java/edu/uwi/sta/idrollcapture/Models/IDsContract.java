@@ -8,6 +8,7 @@ import android.provider.BaseColumns;
 public class IDsContract {
     private static final String INT_TYPE=" INTEGER ";
     private static final String TEXT_TYPE= " TEXT ";
+    private static final String VAR_CHAR= " TEXT ";
     private static final String COMMA_SEP= " , ";
 
 

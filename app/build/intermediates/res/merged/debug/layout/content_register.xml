@@ -51,9 +51,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Time Scanned"
         android:id="@+id/textView4"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignLeft="@+id/coursecode_reg"
-        android:layout_alignStart="@+id/coursecode_reg" />
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ListView
         android:layout_width="wrap_content"
