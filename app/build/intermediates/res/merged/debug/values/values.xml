@@ -345,6 +345,7 @@
     <string name="button_web_search">Web search</string>
     <string name="button_wifi">Connect to Network</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="code_heading"><u>Course Code</u></string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -381,13 +382,11 @@
     <string name="contents_phone">Phone number</string>
     <string name="contents_sms">SMS address</string>
     <string name="contents_text">Plain text</string>
-<<<<<<< HEAD
-    <string name="create_new_course">Create New Course</string>
-=======
+    <string name="course_heading"><u>Course Name</u></string>
     <string name="coursecode">Prefs</string>
     <string name="coursename">Prefs</string>
+    <string name="create_new_course">Create New Course</string>
     <string name="default_">default</string>
->>>>>>> origin/master
     <string name="history_clear_one_history_text">Clear</string>
     <string name="history_clear_text">Clear history</string>
     <string name="history_email_title">Barcode Scanner history</string>

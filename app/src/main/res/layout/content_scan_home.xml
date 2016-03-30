@@ -53,9 +53,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/coursename_txtview"
+        android:textSize="18dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,8 +63,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/coursecode_txtview"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/Register"
-        android:layout_alignEnd="@+id/Register" />
+        android:textSize="18dp"
+        android:layout_below="@+id/coursename_txtview"
+        android:layout_alignLeft="@+id/coursename_txtview"
+        android:layout_alignStart="@+id/coursename_txtview" />
 
 </RelativeLayout>

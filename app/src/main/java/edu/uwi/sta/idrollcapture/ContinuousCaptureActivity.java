@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -52,6 +53,8 @@ public class ContinuousCaptureActivity extends Activity implements  CompoundBarc
 String coursename;
 String coursecode;
     String table_name="";
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,14 +76,20 @@ String coursecode;
         @Override
 
         public void barcodeResult(BarcodeResult result) {
-            Bundle bundle = getIntent().getExtras();
-            if(bundle != null){
-//        if (bundle.containsKey("coursename")) {
-                coursename = bundle.getString("coursename");
-                coursecode = bundle.getString("coursecode");
-            }
-            String new_coursecode=coursecode.replaceAll("\\s+","");
-            String new_coursename=coursename.replaceAll("\\s+","");
+//            Bundle bundle = getIntent().getExtras();
+//            if(bundle != null){
+////        if (bundle.containsKey("coursename")) {
+//                coursename = bundle.getString("coursename");
+//                coursecode = bundle.getString("coursecode");
+//            }
+            SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+            String course_name = prefs.getString("coursename",null);//"No name defined" is the default value.
+            String course_code = prefs.getString("coursecode",null);//"No name defined" is the default value.
+
+            String new_coursename=course_name.replaceAll("\\s+","");
+            String new_coursecode=course_code.replaceAll("\\s+", "");
+            //String new_coursecode=coursecode.replaceAll("\\s+","");
+            //String new_coursename=coursename.replaceAll("\\s+","");
 
             table_name=new_coursename+new_coursecode;
             //Toast.makeText(ContinuousCaptureActivity.this,table_name, Toast.LENGTH_SHORT).show();
