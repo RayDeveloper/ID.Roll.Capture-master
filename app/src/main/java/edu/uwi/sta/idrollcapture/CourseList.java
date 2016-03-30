@@ -145,7 +145,7 @@ public class CourseList extends AppCompatActivity {
                                 String new_coursename=courseName.replaceAll("\\s+","");
                                 String new_coursecode=courseCode.replaceAll("\\s+","");
                                 String table_name=new_coursename+new_coursecode;
-                                String delsql="DROP TABLE "+ table_name +";";
+                                String delsql="DROP TABLE '"+ table_name +"';";
                                 db.execSQL(delsql);
                                 db.close();
                                 restartActivity();

@@ -222,7 +222,7 @@ int courseID=0;
         final SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
     /*then call 'execSQL()' on it. Don't forget about using TableName Variable as tablename.*/
-        db.execSQL( "CREATE TABLE IF NOT EXISTS " + TableName + " ( " +
+        db.execSQL( "CREATE TABLE IF NOT EXISTS '" + TableName + "' ( " +
                 IDsContract.IDsEntry._ID + "INTEGER" + " PRIMARY KEY, "+
                 IDsContract.IDsEntry.COLUMN_NAME_idnumber + " TEXT " + " , " +
                 IDsContract.IDsEntry.COLUMN_NAME_time + " TEXT " + " , " +

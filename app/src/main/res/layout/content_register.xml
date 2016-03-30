@@ -29,10 +29,8 @@
         android:text="Large Text"
         android:id="@+id/coursecode_reg"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/coursename_reg"
-        android:layout_toEndOf="@+id/coursename_reg"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp" />
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
 
     <TextView
         android:layout_width="wrap_content"

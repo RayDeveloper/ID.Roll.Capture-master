@@ -134,18 +134,17 @@
     <string name="turn_off_flashlight">Turn Flash off</string>
     <string name="title_activity_delete">delete</string>
     <string name="title_activity_register">Register</string>
-<<<<<<< HEAD
     <string name="create_new_course">Create New Course</string>
     <string name="title_activity_create_new_course">CreateNewCourse</string>
-=======
     <string name="preference_file_key">Prefs</string>
     <string name="coursename">Prefs</string>
     <string name="coursecode">Prefs</string>
     <string name="default_">default</string>
+   <string name="course_heading"><u>Course Name</u></string>
+    <string name="code_heading"><u>Course Code</u></string>
 
 
 
 
 
->>>>>>> origin/master
 </resources>
