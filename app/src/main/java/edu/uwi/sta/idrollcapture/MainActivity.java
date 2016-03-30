@@ -21,7 +21,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
 
-
+//Raydon Davis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
