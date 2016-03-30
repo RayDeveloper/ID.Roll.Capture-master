@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/button1" >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,6 +18,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.uwi.sta.idrollcapture.MainActivity"
     tools:showIn="@layout/activity_main">
+
+
 
     <ImageView
         android:layout_width="150dp"
@@ -86,28 +95,6 @@
         android:textColor="#44a33c"
         android:clickable="true" />
 
-    <ImageView
-        android:layout_width="1000dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="#f50808" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Student Attendance Tracker"
-        android:id="@+id/textView5"
-        android:height="50dp"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:textColor="#fbfafa"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true" />
-
 </RelativeLayout>
+
+</ScrollView>

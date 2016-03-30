@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="StudentID"
+        android:text="@string/Id_number_heading"
         android:id="@+id/textView2"
         android:layout_below="@+id/coursename_reg"
         android:layout_alignParentLeft="true"
@@ -47,15 +47,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Time Scanned"
+        android:text="@string/Id_time_heading"
         android:id="@+id/textView4"
         android:layout_alignTop="@+id/textView2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="430dp"
         android:id="@+id/register_lv"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
